@@ -1,5 +1,6 @@
 import os
 from tavily import TavilyClient
+from crawler import crawl_page
 
 
 client = TavilyClient(
@@ -21,4 +22,15 @@ def search_campaigns(requirements):
         max_results=5
     )
 
-    return response["results"]
+    campaigns = []
+
+    for result in response["results"]:
+        content = crawl_page(result["url"])
+
+        campaigns.append({
+            "title": result["title"],
+            "url": result["url"],
+            "content": content
+        })
+
+    return campaigns

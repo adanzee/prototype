@@ -11,10 +11,10 @@ requirements = {
 }
 
 
-results = search_campaigns(requirements)
+campaigns = search_campaigns(requirements)
 
-for result in results:
-    print(result["title"])
-    print(result["url"])
-    print(result.get("content", result.get("snippet", "")))
-    print("-" * 50)
+for campaign in campaigns:
+    print("TITLE:", campaign["title"])
+    print("URL:", campaign["url"])
+    print("CONTENT:", campaign["content"][:500])
+    print("=" * 60)
