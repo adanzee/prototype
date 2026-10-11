@@ -1,0 +1,13 @@
+from document_parser import process_file
+print( "=="*50)
+text = process_file('/home/devel/prototype/design_intelligence/test_file/mock_data_file.txt')
+print(text)
+print( "=="*50)
+print( "=="*50)
+pdf_text = process_file('/home/devel/prototype/design_intelligence/test_file/Mock Data File.pdf')
+print(pdf_text)
+print( "=="*50)
+print("=="*50)
+doc_text = process_file('/home/devel/prototype/design_intelligence/test_file/Mock Data File.docx')
+print(doc_text)
+print( "=="*50)
