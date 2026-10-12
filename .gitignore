@@ -4,3 +4,4 @@
 **/__pycache__/
 /test_file
 /src/windows_screen.png
+.env

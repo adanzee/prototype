@@ -4,9 +4,8 @@ from pathlib import Path
 
 from information_extraction.document_parser import DocumentParser
 from information_extraction.section_segmenter import SectionSegmenter
-from information_extraction.rule_extractor import RuleExtractor
 from information_extraction.requirement_schema import RequirementSchema
-from information_extraction.nlp_extractor import NLPExtractor
+from information_extraction.extractor_pipeline import ExtractorPipeline
 
 
 def main():
@@ -16,23 +15,15 @@ def main():
         blocks = DocumentParser().parse(Path(file_path))
         blocks = SectionSegmenter().segment(blocks)
 
-        entities = NLPExtractor().extract_entities(blocks)
+        pipeline = ExtractorPipeline()
+        combined_fields = pipeline.extract(blocks)
 
-        print("\nNLP entities:\n")
-        for entity in entities:
-           print(
-            f"Text: {entity['text']} | "
-            f"Label: {entity['label']} | "
-            f"Sentence: {entity['sentence']} | "
-            f"Section: {entity['evidence'].section}"
-            )
+        requirements = RequirementSchema(**combined_fields)
 
-        extractor = RuleExtractor()
-        extracted_fields = extractor.extract_all_labeled_fields(blocks)
+        print("\nSchema validation successful.")
+        print(f"Schema version: {requirements.schema_version}")
 
-        requirements = RequirementSchema(**extracted_fields)
-
-        print("\nExtracted requirements:\n")
+        print("\nExtracted campaign requirements:\n")
         print(
             json.dumps(
                 requirements.model_dump(mode="json"),

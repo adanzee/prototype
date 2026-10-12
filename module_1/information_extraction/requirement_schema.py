@@ -20,11 +20,16 @@ class Evidence(BaseModel):
     extraction_method: ExtractionMethod
 
 
+
 class RequirementValue(BaseModel):
+    """One distinct value extracted from the campaign brief."""
+
     model_config = ConfigDict(extra="forbid")
 
     value: str = Field(min_length=1)
+    confidence: float | None = Field(default=None, ge=0, le=1)
     evidence: list[Evidence] = Field(min_length=1)
+
 
 
 class RequirementField(BaseModel):

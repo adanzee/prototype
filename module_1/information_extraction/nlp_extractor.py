@@ -44,5 +44,58 @@ class NLPExtractor:
                     ),
                 }
             )
-
         return entities
+
+        
+    def map_entity_to_field(self, source_line: str) -> str | None:
+        label = source_line.split(":", maxsplit=1)[0].strip().casefold()
+
+        label_to_field = {
+            "brand": "brand",
+            "brand name": "brand",
+            "product": "product",
+            "product name": "product",
+            "product category": "product_category",
+            "category": "product_category",
+            "target audience": "target_audience",
+            "audience": "target_audience",
+            "target market": "target_market",
+            "geographic market": "target_market",
+            "positioning": "positioning",
+            "brand positioning": "positioning",
+            "campaign objective": "campaign_objective",
+            "campaign goal": "campaign_objective",
+            "platform": "platform",
+            "platforms": "platform",
+            "channels": "platform",
+            "restrictions": "restrictions",
+            "constraints": "restrictions",
+            "limitations": "restrictions",
+        }
+
+        return label_to_field.get(label)
+
+    
+    def extract_mapped_entities(
+        self,
+        blocks: list[TextBlock],
+    ) -> dict[str, list[RequirementValue]]:
+        mapped: dict[str, list[RequirementValue]] = {}
+
+        for entity in self.extract_entities(blocks):
+            field_name = self.map_entity_to_field(entity["source_line"])
+
+            if field_name is None:
+                continue
+
+            mapped.setdefault(field_name, []).append(
+                RequirementValue(
+                    value=entity["text"],
+                    evidence=[entity["evidence"]],
+                )
+            )
+
+        return mapped
+
+
+
