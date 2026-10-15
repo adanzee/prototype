@@ -1,7 +1,6 @@
-Aurelia is preparing a campaign for its new floral perfume, targeting women aged 22–35 in the UAE.
+Create a localized Q4 holiday campaign for out high-end luxury watch line that must launch 
+globally on November 1st featuring a primary call-to-action that drives immediate high volume 
+discount coupon redemptions while strictly maintaining an exclusive, premium brand tone 
+that never mention price or sale.
 
-The campaign should increase brand awareness and position Aurelia as a premium fragrance brand.
-
-The creative direction should feel luxurious, elegant, and modern. The campaign will run on Instagram and TikTok.
-
-All content must avoid medical claims.
+there's a change in the architecture, if the llm api response fail what to do ?//?
