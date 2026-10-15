@@ -6,7 +6,7 @@ from openai import OpenAI
 
 
 load_dotenv()
-
+#for on this too as its giving the rate limiting error
 
 class GroqClient:
     def __init__(self):
