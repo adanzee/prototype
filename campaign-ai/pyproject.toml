@@ -1,0 +1,26 @@
+[project]
+name = "campaign-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "adanzee", email = "adan.khurram00@gmail.com" }
+]
+requires-python = ">=3.15"
+dependencies = [
+    "langgraph-checkpoint-postgres>=3.2.0",
+    "psycopg[binary]>=3.3.6",
+]
+
+[project.scripts]
+campaign-ai = "campaign_ai:main"
+
+[build-system]
+requires = ["uv_build>=0.12.21,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
