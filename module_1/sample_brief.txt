@@ -1,6 +1,0 @@
-Create a localized Q4 holiday campaign for out high-end luxury watch line that must launch 
-globally on November 1st featuring a primary call-to-action that drives immediate high volume 
-discount coupon redemptions while strictly maintaining an exclusive, premium brand tone 
-that never mention price or sale.
-
-there's a change in the architecture, if the llm api response fail what to do ?//?
