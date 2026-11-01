@@ -1,7 +1,0 @@
-/campaign-requirement-model-test/*
-.venv/
-/screenshots
-**/__pycache__/
-/test_file
-/src/windows_screen.png
-.env
