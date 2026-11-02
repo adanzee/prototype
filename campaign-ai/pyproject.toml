@@ -1,26 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "campaign-ai"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-authors = [
-    { name = "adanzee", email = "adan.khurram00@gmail.com" }
-]
-requires-python = ">=3.15"
+description = "Campaign brief extraction with mandatory human review"
+requires-python = ">=3.12,<3.13"
+
 dependencies = [
-    "langgraph-checkpoint-postgres>=3.2.0",
-    "psycopg[binary]>=3.3.6",
+    "langgraph>=1,<2",
+    "litellm>=1,<2",
+    "instructor>=1,<2",
+    "pydantic>=2,<3",
+    "pydantic-settings>=2,<3",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.30,<1",
+    "streamlit>=1.40,<2",
+    "httpx[socks]>=0.27,<1",
 ]
 
-[project.scripts]
-campaign-ai = "campaign_ai:main"
-
-[build-system]
-requires = ["uv_build>=0.12.21,<0.13.0"]
-build-backend = "uv_build"
-
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
-    "pytest>=9.2.0",
-    "ruff>=0.17.3",
+    "pytest>=8,<10",
 ]
+
+postgres = [
+    "langgraph-checkpoint-postgres>=3,<4",
+    "psycopg[binary,pool]>=3,<4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]

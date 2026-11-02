@@ -1,0 +1,9 @@
+{
+  "brief": "Client: Stride Footwear. Launch our new running shoe on Instagram and TikTok in Germany. Goal: online sales among urban runners aged 22-35. Tone: energetic.",
+  "expected": {
+    "objective": "conversion",
+    "channels": ["instagram", "tiktok"],
+    "regions": ["germany"],
+    "product_or_service": "running shoe"
+  }
+}
