@@ -1,0 +1,18 @@
+[
+  {
+    "source": {
+      "url": "https://www.mdpi.com/1424-8220/26/20/6411",
+      "title": "Eye-Tracking Analysis of Visual Attention and Preference in Human-Created, AI-Generated, and AI-Refined Human Advertisements",
+      "kind": "study",
+      "collected_on": "2026-11-21",
+      "published_on": "2026-10-10",
+      "doi": "10.3390/s26206411"
+    },
+    "finding": "Participants selected fully AI-generated ads in approximately 59% of trials that paired them with human-created ads.",
+    "locator": "Results, Human vs. AI forced-choice comparison",
+    "limitation": "The study measured preference between specific ads in a forced-choice task. It did not measure outfit recognition, purchases, or response among UK apparel shoppers.",
+    "markets": [],
+    "audience": "Young adults aged 18–26 with generative AI experience",
+    "topics": ["advertising", "ad preference", "creative testing"]
+  }
+]
